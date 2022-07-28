@@ -4,4 +4,4 @@
 <p>https://www.figma.com/file/8X4t2k3OqepOHmR0sjwJuH/jh's-project?node-id=0%3A1<p>
 
 <p>erd<p>
-<img src = 'https://user-images.githubusercontent.com/87347699/181606766-2455445e-f1aa-4c93-8589-9798d0e53fe4.jpg'
+<img src = 'https://user-images.githubusercontent.com/87347699/181606766-2455445e-f1aa-4c93-8589-9798d0e53fe4.jpg'>
