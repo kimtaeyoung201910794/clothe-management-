@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from account.forms import UserForm
 from account.models import myUser
 
+def load(request):
+    return redirect('login')
 
 def register(request):
     if request.method == "POST":

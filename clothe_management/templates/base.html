@@ -8,15 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
-    <title>open your closet</title>
-</head>
-<body>
-    
-    <!-- 반복되지 않는 부분 시작-->
-    {% block content %}
-    {% endblock content %}
-    <!-- 반복되지 않는 부분 끝-->
-
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
@@ -24,5 +15,30 @@
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>open your closet</title>
+</head>
+<body>
+    홈버튼(로고)
+    <input type = 'button' onclick=location.href="{% url 'home' %}">
+
+    검색창
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        검색 <input type="search" name="keyward" id = 'keyward'>
+        <input type="submit">
+        <input type = 'text' name = 'username' value="{{user.id}}" style = "display: none;">
+        
+    </form>
+
+    <script type = "text/javascript">var keyward = "{{keyward}}"</script>
+    <script type = "text/javascript">var dict_category = {'top':['긴팔','반팔'],'bottom':['긴바지','반바지'],'shoes':['운동화','구두','슬리퍼'],'ACCs':['시계','가방']}</script>
+    <script src = "{% static 'js/search.js' %}"></script>
+    <!-- 반복되지 않는 부분 시작-->
+    {% block content %}
+    {% endblock content %}
+    <!-- 반복되지 않는 부분 끝-->
+
+    
 </body>
 </html>
