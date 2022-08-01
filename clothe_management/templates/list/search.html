@@ -8,10 +8,13 @@
 </blockquote>
 
 {% for i in clothes %}
-{{i.images.url}}
-    <div>
-        <img class="image" src="{{ i.images.url }}"/>
-    </div>
+    {% if forloop.counter0|divisibleby:4 %}
+        <hr>
+    {% endif %}
+        <div>
+            <img class="image" src="{{ i.url }}"/>
+        </div>
+    
 {% endfor %}
 
 <script type = "text/javascript">var clothes = "{{clothes}}"</script>
