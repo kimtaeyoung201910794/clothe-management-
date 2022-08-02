@@ -19,6 +19,9 @@ urlpatterns = [
     path('search/',clothe_view.search,name='search'),
     path('clothe/add',clothe_view.add,name='add_clothe'),
     path('clothe/view/<str:view_for>',clothe_view.list,name = "clothe_view"),
-    path('community/main',post_view.main,name = 'post_view'),
+    path('community/main',post_view.main,name = 'community_main'),
+    path('mylooks/',clothe_view.mylooks,name = 'mylooks'),
+    path('favorites/',clothe_view.favorite,name = 'favorite'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

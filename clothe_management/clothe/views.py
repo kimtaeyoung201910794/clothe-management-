@@ -54,3 +54,15 @@ def list(request, view_for):
     for data in datas:
         clothes.append(data.image.url)     
     return render(request,'list/views.html',{'userid':userid, 'clothes':clothes})
+
+def mylooks(request):
+    return render(request,'looks/main.html')
+
+def favorite(request):
+    clothes = []
+
+    userid = request.user.id
+    datas = clothe.objects.filter(user_id = userid,favorite=True)
+    for data in datas:
+        clothes.append(data.image.url)
+    return render(request,'list/favorite.html',{'userid':userid, 'clothes':clothes})

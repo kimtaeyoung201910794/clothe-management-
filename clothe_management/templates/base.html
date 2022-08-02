@@ -78,7 +78,11 @@
     <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=회색' %}" value="회색">
     <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=흰색' %}" value="흰색">
 
-    <a href="{% url 'community' %}">community</a>
+    <a href="{% url 'community_main' %}">community</a>
+    <a href="{% url 'mylooks' %}">My Looks</a>
+    <a href="{% url 'favorite' %}">Favorites</a>
+    <a href="#">Log Out</a>
+    <a href="#">Settings</a>
 
 
     <script type="text/javascript">var keyward = "{{keyward}}"</script>
