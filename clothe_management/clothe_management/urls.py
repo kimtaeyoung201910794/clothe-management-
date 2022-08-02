@@ -22,6 +22,7 @@ urlpatterns = [
     path('community/main',post_view.main,name = 'community_main'),
     path('mylooks/',clothe_view.mylooks,name = 'mylooks'),
     path('favorites/',clothe_view.favorite,name = 'favorite'),
+    path('weather/',clothe_view.weather,name = 'weather'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

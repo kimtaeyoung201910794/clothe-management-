@@ -66,3 +66,6 @@ def favorite(request):
     for data in datas:
         clothes.append(data.image.url)
     return render(request,'list/favorite.html',{'userid':userid, 'clothes':clothes})
+
+def weather(request):
+    return render(request,'looks/weather.html')
