@@ -18,7 +18,17 @@ $(document).ready(function(){
 
     $('.page-item').click(function(){
         $("#card-area").empty();
+        console.log($(this))
+        console.log($('.page-item:first'))
         var request_page = $(this).text();
+        if(request_page == 'Previous'){
+            request_page=parseInt(page_num)-1
+        }
+        else if(request_page == 'Next'){
+            request_page = parseInt(page_num)+1
+        }
+        console.log(page_num)
+        console.log(request_page)
         $(".pagination>.page-item:first").removeClass("disabled");
         $(".pagination>.page-item:last").removeClass("disabled");
     
