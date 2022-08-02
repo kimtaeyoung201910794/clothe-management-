@@ -10,7 +10,7 @@ def search(request):
         keyward = request.POST.get('keyward')
         datas = clothe.objects.filter(name__contains = keyward)
         for data in datas:
-            clothes.append(data.image)
+            clothes.append(data.image.url)
         return render(request, 'list/search.html',{'userid':userid,'keyward':keyward, 'clothes':clothes})
 
 def add(request):
