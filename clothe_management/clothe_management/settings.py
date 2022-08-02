@@ -124,3 +124,14 @@ LOGIN_REDIRECT_URL = '/home/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_HOST = 'smtp.gmail.com'
+# 메일을 호스트하는 서버
+EMAIL_PORT = '587'
+# gmail과의 통신하는 포트
+EMAIL_HOST_USER = 'jomulagy688@gmail.com'
+# 발신할 이메일
+EMAIL_HOST_PASSWORD = 'ibxpeycbwvczbyec'
+# 발신할 메일의 비밀번호
+EMAIL_USE_TLS = True
+# TLS 보안 방법

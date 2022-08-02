@@ -14,8 +14,10 @@ urlpatterns = [
     path('',account_view.load),
     path('home/',account_view.home,name = 'home'),
     path('login/', auth_views.LoginView.as_view(template_name='login/login.html'), name='login'),
+    path('forgot_passward/', account_view.forgot_password,name='forgot_password'),
     path('register/',account_view.register,name='register'),
     path('search/',clothe_view.search,name='search'),
     path('clothe/add',clothe_view.add,name='add_clothe'),
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
