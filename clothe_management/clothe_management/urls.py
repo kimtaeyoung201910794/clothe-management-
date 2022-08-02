@@ -7,7 +7,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from account import views as account_view
 from clothe import views as clothe_view
-
+from post import views as post_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +18,7 @@ urlpatterns = [
     path('register/',account_view.register,name='register'),
     path('search/',clothe_view.search,name='search'),
     path('clothe/add',clothe_view.add,name='add_clothe'),
-    
+    path('clothe/view/<str:view_for>',clothe_view.list,name = "clothe_view"),
+    path('community/main',post_view.main,name = 'post_view'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

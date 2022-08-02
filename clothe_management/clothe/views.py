@@ -8,7 +8,12 @@ def search(request):
     if request.method=='POST':
         userid = request.POST.get('username')
         keyward = request.POST.get('keyward')
-        datas = clothe.objects.filter(name__contains = keyward)
+        
+        if keyward == '':
+            return render(request, 'list/search.html',{'userid':userid,'keyward':keyward, 'clothes':clothes})
+        
+        datas = clothe.objects.filter(user_id = userid, name__contains = keyward)
+        
         for data in datas:
             clothes.append(data.image.url)
         return render(request, 'list/search.html',{'userid':userid,'keyward':keyward, 'clothes':clothes})
@@ -27,3 +32,25 @@ def add(request):
             return redirect('home')
 
     return render(request,'clothe/add.html')
+
+def list(request, view_for):
+    clothes = []
+
+    userid = request.user.id
+    if view_for == 'all':
+        datas = clothe.objects.filter(user_id = userid)
+    elif 'category' in view_for:
+        category = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,category = category)
+    elif 'season' in view_for:
+        season = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,season = season)
+    elif 'style' in view_for:
+        style = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,style = style)
+    elif 'color' in view_for:
+        color = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,color = color)
+    for data in datas:
+        clothes.append(data.image.url)     
+    return render(request,'list/views.html',{'userid':userid, 'clothes':clothes})
