@@ -19,7 +19,7 @@ def add(request):
             new_post.user = myUser.objects.get(id=request.user.id)
 
             new_post.save()
-
+    
             return redirect('boards')
 
     return render(request, 'post/board.html')
