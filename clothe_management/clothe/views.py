@@ -35,7 +35,7 @@ def add(request):
 
 def list(request, view_for):
     clothes = []
-
+    datas = []
     userid = request.user.id
     if view_for == 'all':
         datas = clothe.objects.filter(user_id = userid)
