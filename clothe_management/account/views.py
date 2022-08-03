@@ -69,4 +69,5 @@ def forgot_password(request):
     context = {}
     return render(request, "login/forgot_password.html",context)
 
- 
+def setting(request):
+    return render(request, 'register/settings.html')

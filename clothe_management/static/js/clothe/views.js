@@ -3,9 +3,8 @@ var page_num = 0
 var total_page_num
 
 $(document).ready(function(){
-    $("#keyward").val(keyward);
-
-    if (keyward == ''){
+    console
+    if (clothes=='[]'){
         clothes = []
     }
     else{
@@ -25,6 +24,7 @@ $(document).ready(function(){
         if(request_page == 'Previous'){
             request_page=parseInt(page_num)-1
         }
+
         else if(request_page == 'Next'){
             request_page = parseInt(page_num)+1
         }

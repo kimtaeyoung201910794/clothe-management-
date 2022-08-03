@@ -135,3 +135,5 @@ EMAIL_HOST_PASSWORD = 'ibxpeycbwvczbyec'
 # 발신할 메일의 비밀번호
 EMAIL_USE_TLS = True
 # TLS 보안 방법
+
+LOGOUT_REDIRECT_URL = '/'
