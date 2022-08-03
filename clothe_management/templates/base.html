@@ -42,16 +42,20 @@
 
     </form>
 
-    <a href="{% url 'clothe_view' 'all' %}">All Products</a>
-    <a href="{% url 'clothe_view' 'category?=반팔' %}">반팔</a>
-    <a href="{% url 'clothe_view' 'category?=긴팔' %}">긴팔</a>
-    <a href="{% url 'clothe_view' 'category?=긴바지' %}">긴바지</a>
-    <a href="{% url 'clothe_view' 'category?=반바지' %}">반바지</a>
-    <a href="{% url 'clothe_view' 'category?=운동화' %}">운동화</a>
-    <a href="{% url 'clothe_view' 'category?=구두' %}">구두</a>
-    <a href="{% url 'clothe_view' 'category?=슬리퍼' %}">슬리퍼</a>
-    <a href="{% url 'clothe_view' 'category?=시계' %}">시계</a>
-    <a href="{% url 'clothe_view' 'category?=가방' %}">가방</a>
+    <a href="{% url 'clothe_view' 'parent_category?=top' %}">top</a>
+<a href="{% url 'clothe_view' 'parent_category?=bottom' %}">bottom</a>
+<a href="{% url 'clothe_view' 'parent_category?=shoes' %}">shoes</a>
+<a href="{% url 'clothe_view' 'parent_category?=ACCs' %}">ACCS</a>
+
+    <a href="{% url 'clothe_view' 'child_category?=반팔' %}">반팔</a>
+    <a href="{% url 'clothe_view' 'child_category?=긴팔' %}">긴팔</a>
+    <a href="{% url 'clothe_view' 'child_category?=긴바지' %}">긴바지</a>
+    <a href="{% url 'clothe_view' 'child_category?=반바지' %}">반바지</a>
+    <a href="{% url 'clothe_view' 'child_category?=운동화' %}">운동화</a>
+    <a href="{% url 'clothe_view' 'child_category?=구두' %}">구두</a>
+    <a href="{% url 'clothe_view' 'child_category?=슬리퍼' %}">슬리퍼</a>
+    <a href="{% url 'clothe_view' 'child_category?=시계' %}">시계</a>
+    <a href="{% url 'clothe_view' 'child_category?=가방' %}">가방</a>
 
     <a href="{% url 'clothe_view' 'season?=봄' %}">spring</a>
     <a href="{% url 'clothe_view' 'season?=여름' %}">summer</a>

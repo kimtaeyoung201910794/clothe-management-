@@ -39,9 +39,12 @@ def list(request, view_for):
     userid = request.user.id
     if view_for == 'all':
         datas = clothe.objects.filter(user_id = userid)
-    elif 'category' in view_for:
-        category = view_for[view_for.find('?=')+2:]
-        datas = clothe.objects.filter(user_id = userid,category = category)
+    elif 'parent_category' in view_for:
+        parent_category = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,parent_category = parent_category)
+    elif 'child_category' in view_for:
+        child_category = view_for[view_for.find('?=')+2:]
+        datas = clothe.objects.filter(user_id = userid,child_category = child_category)
     elif 'season' in view_for:
         season = view_for[view_for.find('?=')+2:]
         datas = clothe.objects.filter(user_id = userid,season = season)
