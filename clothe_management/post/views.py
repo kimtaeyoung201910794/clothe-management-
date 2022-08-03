@@ -17,34 +17,51 @@ def main(request):
 
 
 
-def postFormInput(request):
-    return render(request,"post/add.html")
+def postFormInput(request,type):
+    context = {
+        'title' : type,
+        'time' : time(),
+    }
+    return render(request,"post/add.html",context)
 
-def add(request):
+def add(request,type):
+    context = {
+        'title' : type,
+        'time' : time(),
+    }
     if request.method == "POST":
-        print()
+        print(request.POST)
         form = PostForm(request.POST)
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.views = 0
-            if []:
-                print(1)
-            new_post.annonymous = True if len(request.POST.getlist("annonymous"))!=0 else False
+            new_post.annonymous = True if request.POST.getlist("annonymous[]") else False
             new_post.image = request.FILES['image']
             new_post.user = myUser.objects.get(id=request.user.id)
 
             new_post.save()
     
-            return redirect('boards')
-
-    return render(request, 'post/add.html')
+            return render(request,'post/board.html',context)
     
-def boards(request):
-    datas = Post.objects.all()
+    return render(request, 'post/add.html',context)
+    
+def boards(request,type):
+    datas = Post.objects.filter(board=type)
     posts = list(datas)
 
     context = {
+        'title' : type,
         'time' : time(),
         'posts' : posts
     }
     return render(request,'post/board.html',context)
+
+def detail(request,type,post_id):
+    post = Post.objects.get(id = post_id)
+    post.views+=1
+    post.save()
+    context = {
+        'title' : type,
+        'time' : time(),
+    }
+    return render(request,'post/detail.html',context)

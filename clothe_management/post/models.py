@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime, timedelta
 
 class Post(models.Model):
+    board = models.CharField(max_length=100,default='')
     likes = models.IntegerField(default = 0)
     annonymous = models.BooleanField(default = False)
     user = models.ForeignKey('account.myUser',null=True,on_delete=models.CASCADE)
