@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +16,26 @@
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
     <title>open your closet</title>
+    <style>
+        body
+        {
+            background-image: url("{% static 'img/back_img.jpg' %}");
+        }
+    </style>
 </head>
 <body>
-    <a href = '#' style = "cursor : pointer" onclick=location.href="{% url 'login' %}">go to sign in page</a>
-    
+    <div class="container">
+        <div id="email_sent_content" class="content">
+            <img id="email_sent_logo" src="{% static 'img/logo.png' %}" alt="이미지를 불러올 수 없습니다">
+            <p>We've sent you a new password to your email address, please check your email</p>
+            <a href = '#' style = "cursor : pointer" onclick=location.href="{% url 'login' %}">go to sign in page</a>
+        </div>
+    </div>
+
         
 
     

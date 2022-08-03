@@ -7,8 +7,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from account import views as account_view
 from clothe import views as clothe_view
-from post import views as post_view
-from chat import views as chat_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,17 +18,6 @@ urlpatterns = [
     path('register/',account_view.register,name='register'),
     path('search/',clothe_view.search,name='search'),
     path('clothe/add',clothe_view.add,name='add_clothe'),
-    path('clothe/view/<str:view_for>',clothe_view.list,name = "clothe_view"),
-    path('community/main',post_view.main,name = 'community_main'),
-    path('community/board',post_view.boards,name = 'boards'),
-    path('new_post',post_view.postFormInput,name = 'new_post'),
-    path('add_post',post_view.add,name = 'add_post'),
-    path('mylooks/',clothe_view.mylooks,name = 'mylooks'),
-    path('community/new_post',post_view.add,name = 'new_post'),
-    path('favorites/',clothe_view.favorite,name = 'favorite'),
-    path('weather/',clothe_view.weather,name = 'weather'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('mypage/',account_view.setting,name = 'settings'),
-    path('chattings/',chat_view.chatting,name = "chattings"),
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

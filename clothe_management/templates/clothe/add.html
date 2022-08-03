@@ -5,7 +5,8 @@
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
 <form class="user" method = "post" action = "{% url 'add_clothe' %}" enctype="multipart/form-data">
     {% csrf_token %}
-    
+    <input type = "text" value = "{{user.id}}" style = "display:none" name = "userid">
+
     사진
     <input type="file" name = 'image' id = 'form-img' style = "display:none">
     <input type = 'button' id = 'btn-img'>

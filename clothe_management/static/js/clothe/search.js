@@ -5,22 +5,21 @@ var total_page_num
 $(document).ready(function(){
     $("#keyward").val(keyward);
 
-    if (keyward == ''){
-        clothes = []
+    clothes = clothes.split(",")
+    for(var url of clothes){
+        img_url.push(url.substring(url.indexOf("&#x27;")+6,url.lastIndexOf("&#x27;")))
     }
-    else{
-        clothes = clothes.split(",")
-        for(var url of clothes){
-            img_url.push(url.substring(url.indexOf("&#x27;")+6,url.lastIndexOf("&#x27;")))
-        }
- 
-    }
+
     print_clothes(page_num)
+
     print_pagenations()
+
+
 
     $('.page-item').click(function(){
         $("#card-area").empty();
-    
+        console.log($(this))
+        console.log($('.page-item:first'))
         var request_page = $(this).text();
         if(request_page == 'Previous'){
             request_page=parseInt(page_num)-1
@@ -28,7 +27,8 @@ $(document).ready(function(){
         else if(request_page == 'Next'){
             request_page = parseInt(page_num)+1
         }
-
+        console.log(page_num)
+        console.log(request_page)
         $(".pagination>.page-item:first").removeClass("disabled");
         $(".pagination>.page-item:last").removeClass("disabled");
     
@@ -40,9 +40,8 @@ $(document).ready(function(){
         }
         $(".pagination>.page-item").eq(page_num).removeClass("active");
         $(".pagination>.page-item").eq(request_page).addClass("active");
-        if (img_url.length != 0){
-            print_clothes(request_page-1);
-        }
+    
+        print_clothes(request_page-1);
         page_num = request_page;
     
     });
@@ -50,16 +49,13 @@ $(document).ready(function(){
     $('.pagination>.page-item:nth-child(2)').trigger("click");
 });
 
-function print_pagenations(){  
+function print_pagenations(){
     var target = $('.pagination>.page-item:first-child')
     if (img_url.length%20!=0){
         total_page_num = parseInt(img_url.length/20)+1
     }
     else{
         total_page_num = parseInt(img_url.length/20)
-    }
-    if(total_page_num==0){
-        total_page_num = 1
     }
     for(var i = 0;i<total_page_num;i++){
         var page_item = document.createElement('li');
@@ -78,7 +74,6 @@ function print_clothes(page_num){
     var container = $("#card-area")
     var start = 20*page_num;
     var end = (img_url.length<20*(page_num+1)-1)?img_url.length:20*(page_num+1)-1
-    
     for(var i = start; i<=end;i++){
         if(i%4==0){
             var row = document.createElement('div');
