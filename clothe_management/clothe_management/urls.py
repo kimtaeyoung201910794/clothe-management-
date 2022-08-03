@@ -23,6 +23,8 @@ urlpatterns = [
     path('mylooks/',clothe_view.mylooks,name = 'mylooks'),
     path('favorites/',clothe_view.favorite,name = 'favorite'),
     path('weather/',clothe_view.weather,name = 'weather'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('mypage/',account_view.setting,name = 'settings'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
