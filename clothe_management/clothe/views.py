@@ -25,7 +25,7 @@ def add(request):
         if form.is_valid():
             new_clothe = form.save(commit=False)
             new_clothe.image = request.FILES['image']
-            new_clothe.user = myUser.objects.get(id='2')
+            new_clothe.user = myUser.objects.get(id=request.user.id)
 
             new_clothe.save()
 
