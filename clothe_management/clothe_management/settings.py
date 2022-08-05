@@ -1,15 +1,15 @@
 from pathlib import Path
 import os
-
+from .mysettings import mySECRET_KEY, myDATABASES
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = mySECRET_KEY
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!4@c6--84(-tqrm1x@u!bxy(crq@*y6c9si@3h3uw4o@p14geg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -70,12 +70,7 @@ WSGI_APPLICATION = 'clothe_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = myDATABASES
 
 
 # Password validation

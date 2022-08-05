@@ -3,7 +3,7 @@ from turtle import color
 from django.db import models
 
 class clothe(models.Model):
-    user = models.ForeignKey('account.myUser',null=True,on_delete=models.CASCADE)
+    user = models.ForeignKey('account.myUser',on_delete=models.CASCADE)
     name = models.TextField(null=False, default = '')
     image = models.ImageField(upload_to='images/')
     season = models.TextField()
