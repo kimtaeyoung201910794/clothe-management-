@@ -1,0 +1,37 @@
+
+#search_area
+{
+    border-radius: 10px;
+}
+
+#search_btn
+{
+    background-size: contain;
+    background-position:  0px 0px;
+    background-repeat: no-repeat;
+    padding:1px;
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    border-radius: 10px;
+}
+#base_logo{
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-position:  0px 0px;
+    background-repeat: no-repeat;
+    border: 0px;
+}
+
+
+#nav_content
+{
+    justify-content: flex-start;
+}
+
+#hamburger_btn
+{
+    position: absolute;
+    right: 20px;
+}
