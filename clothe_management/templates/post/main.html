@@ -5,5 +5,22 @@
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
 {% include "post/base.html" %}
 {% include "post/side.html" %}
+<!-- <form action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+
+    <input class="d-inline-block align-text-top" id="search_area" type="search" name="keyward" id='keyward'>
+    <input class="d-inline-block align-text-top" id="search_btn" type="submit" value="">
+
+    <input type='text' name='username' value="{{user.id}}" style="display: none;">
+
+  </form>
+<img src = "{{user.image}}"> -->
+<input type='button' onclick=location.href="{% url 'settings' %}" value = "내정보">
+<input type='button' onclick=location.href="{% url 'logout' %}" value = "로그아웃">
+<input type='button' onclick=location.href="{% url 'my_post' '내가쓴글' %}" value = "내가 쓴 글">
+<input type='button' onclick=location.href="{% url 'my_post' '댓글단글' %}" value = "댓글 단 글">
+<input type='button' onclick=location.href="{% url 'my_post' '스크랩' %}" value = "스크랩">
+
+
 <!-- 반복되지 않는 부분 끝 -->
 {% endblock content %}
