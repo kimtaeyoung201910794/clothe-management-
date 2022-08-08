@@ -5,7 +5,6 @@
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
 
 <Html>
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,9 +38,11 @@
   <title>open your closet</title>
 
   <style>
-    body {
-      background-image: url("{% static 'img/cloth_main.png' %}");
-      background-size: cover;
+    header {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: center;
     }
 
     body {
@@ -51,18 +52,24 @@
     }
 
     #add_cloth_btn {
-      position: relative;
+      position: fixed;
       right: 20px;
-      top: 40px;
+      top: 50px;
     }
 
     #views_title_bar {
-      border-bottom: 1px;
-      border-color: black;
+      border-bottom: gray solid 1px;
+      border-width: 100%;
     }
-    main{
+
+    main {
       width: 100%;
       height: 100%;
+    }
+
+    #cloth_logo {
+      height: 200px;
+      width: 300px;
     }
   </style>
 </head>
@@ -70,16 +77,104 @@
 <body>
   <input type=button id="add_cloth_btn" class="btn btn-success btn-sm" value='add clothes'
     onclick=location.href="{% url 'add_clothe' %}">
-  <a href="{% url 'clothe_view' 'all' %}">All Products</a>
+
+  <header>
+    <div id="cloth_logo">
+      <a href="{% url 'clothe_view' 'all' %}">
+        <img src="{% static 'img/cloth_logo1.png' %}" alt="" height="100%">
+      </a>
+    </div>
+  </header>
 
   <div id="views_title_bar" class="container">
-    <div class="row row-cols-4">
+    <div id="category_bar" class="row row-cols-4">
       <div class="col">Category</div>
       <div class="col">Season</div>
       <div class="col">Style</div>
       <div class="col">Color</div>
     </div>
-  </div>
+    <div id="hide_menu">
+      <div class="row row-cols-4">
+        <div class="col">
+          <ul class="first_ul">
+            <li>
+              <a href="{% url 'clothe_view' 'parent_category?=top' %}">Top</a>
+              <ul>
+                <li><a href="{% url 'clothe_view' 'child_category?=긴팔' %}">긴팔</a></li>
+                <li><a href="{% url 'clothe_view' 'child_category?=반팔' %}">반팔</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'clothe_view' 'parent_category?=bottom' %}">Bottom</a>
+              <ul>
+                <li><a href="{% url 'clothe_view' 'child_category?=긴바지' %}">긴바지</a></li>
+                <li><a href="{% url 'clothe_view' 'child_category?=반바지' %}">반바지</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'clothe_view' 'parent_category?=shoes' %}">Shoes</a>
+              <ul>
+                <li><a href="{% url 'clothe_view' 'child_category?=운동화' %}">운동화</a></li>
+                <li><a href="{% url 'clothe_view' 'child_category?=구두' %}">구두</a></li>
+                <li> <a href="{% url 'clothe_view' 'child_category?=슬리퍼' %}">슬리퍼</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'clothe_view' 'parent_category?=ACCs' %}">ACCs</a>
+              <ul>
+                <li><a href="{% url 'clothe_view' 'child_category?=시계' %}">시계</a></li>
+                <li><a href="{% url 'clothe_view' 'child_category?=가방' %}">가방</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="first_ul">
+            <li><a href="{% url 'clothe_view' 'season?=봄' %}">Spring</a></li><br>
+            <li><a href="{% url 'clothe_view' 'season?=여름' %}">Summer</a></li><br>
+            <li><a href="{% url 'clothe_view' 'season?=가을' %}">Fall</a></li><br>
+            <li><a href="{% url 'clothe_view' 'season?=겨울' %}">Winter</a></li><br>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="first_ul">
+            <li><a href="{% url 'clothe_view' 'style?=스트릿' %}">Street</a></li><br>
+            <li><a href="{% url 'clothe_view' 'style?=캐주얼' %}">Casual</a></li><br>
+            <li><a href="{% url 'clothe_view' 'style?=댄디' %}">Dandy</a></li><br>
+            <li><a href="{% url 'clothe_view' 'style?=스포츠' %}">Sports</a></li><br>
+            <li><a href="{% url 'clothe_view' 'style?=포멀' %}">Formal</a></li><br>
+            <li><a href="{% url 'clothe_view' 'style?=레트로' %}">Retro</a></li><br>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="first_ul">
+            <li><input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=빨강' %}" value="빨강">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=주황' %}" value="주황">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=노랑' %}" value="노랑">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=초록' %}" value="초록">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=파랑' %}" value="파랑">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=남색' %}" value="남색">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=보라색' %}" value="보라색">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=검은색' %}" value="검은색">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=회색' %}" value="회색">
+            </li>
+            <li> <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=흰색' %}" value="흰색">
+            </li>
+          </ul>
+        </div>
+        </div>
+        
+        </div>
+        
+        </div>
 
   <a href="{% url 'clothe_view' 'parent_category?=top' %}">top</a>
   <a href="{% url 'clothe_view' 'parent_category?=bottom' %}">bottom</a>
@@ -118,74 +213,10 @@
   <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=검은색' %}" value="검은색">
   <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=회색' %}" value="회색">
   <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=흰색' %}" value="흰색">
-  <div id="card-area" class='container'></div>
-<main>
-  <div class="container">
-    <div class="row row-cols-4">
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-    </div>
+  <div id="card-area" class='container'>
+
   </div>
 
-</main>
 
   <nav aria-label="Page navigation example">
     <ul class="pagination">
