@@ -9,25 +9,51 @@ from django.template.loader import render_to_string
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
+import chromedriver_autoinstaller
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 import string
 import random
+import time
 
-def load_img():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver.get('https://www.naver.com/')
+img_urls=[]
 
-    html = driver.page_source
-    #element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID, 'adaptive')))
-    soup = BeautifulSoup(html, 'html.parser')
-    print(soup)    
+def load_img(request):
+
+    options = webdriver.ChromeOptions() # 크롬 옵션 객체 생성
+    options.add_argument('headless') # headless 모드 설정
+    options.add_argument("window-size=1920x1080") # 화면크기(전체화면)
+    options.add_argument("disable-gpu") 
+    options.add_argument("disable-infobars")
+    options.add_argument("--disable-extensions")
+
+    # 속도 향상을 위한 옵션 해제
+    prefs = {'profile.default_content_setting_values': {'cookies' : 2, 'images': 2, 'plugins' : 2, 'popups': 2, 'geolocation': 2, 'notifications' : 2, 'auto_select_certificate': 2, 'fullscreen' : 2, 'mouselock' : 2, 'mixed_script': 2, 'media_stream' : 2, 'media_stream_mic' : 2, 'media_stream_camera': 2, 'protocol_handlers' : 2, 'ppapi_broker' : 2, 'automatic_downloads': 2, 'midi_sysex' : 2, 'push_messaging' : 2, 'ssl_cert_decisions': 2, 'metro_switch_to_desktop' : 2, 'protected_media_identifier': 2, 'app_banner': 2, 'site_engagement' : 2, 'durable_storage' : 2}}   
+    options.add_experimental_option('prefs', prefs)
+
+
+    chromedriver_autoinstaller.install()
+
+    driver = webdriver.Chrome(options = options)
+
+    driver.implicitly_wait(1)
     
- 
-    
+    driver.get('https://www.hiver.co.kr/')
+
+    for i in range(1,10):
+        for j in range(10000000000):
+            img=driver.find_element(By.XPATH,"//*[@id='adaptive']/div/ul/li["+str(i)+"]/img")
+            if img.get_attribute("src")!=None:
+                driver.find_element(By.XPATH,"//*[@id='adaptive']/div/button[2]").click()
+                break
+        img_urls.append(img.get_attribute("src"))
+
+    driver.quit()
+    return redirect(home)
+
 
 def load(request):
     return redirect('login')
@@ -54,8 +80,7 @@ def login(request):
     return render(request,"login/login.html")
 
 def home(request):
-    load_img()
-    return render(request, 'index.html')
+    return render(request, 'index.html',{"img_urls":img_urls})
 
 def forgot_password(request):
     context = {}
