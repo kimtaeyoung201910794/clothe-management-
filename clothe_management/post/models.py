@@ -6,11 +6,11 @@ class Post(models.Model):
     likes = models.IntegerField(default = 0)
     annonymous = models.BooleanField(default = False)
     user = models.ForeignKey('account.myUser',null=True,on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now=True)
+    time = models.DateTimeField(auto_now_add=True)
     views = models.IntegerField()
     title = models.TextField(default = '')
     content = models.TextField(null=True)
-    image = models.ImageField(upload_to='images/',default = '')
+    image = models.ImageField(upload_to='images/',null=True)
 
     @property
     def created_string(self):
@@ -31,6 +31,26 @@ class Post(models.Model):
     @property
     def writer(self):
         if self.annonymous:
-            return self.user.first_name+self.user.last_name
-        else:
             return '익명'
+        else:
+            return self.user.first_name+self.user.last_name
+            
+    
+    @property
+    def get_time(self):
+        time = ''
+        month = str(self.time.month)
+        if len(month)==1:
+            month = '0'+month
+        day = str(self.time.day)
+        if len(day)==1:
+            day = '0'+day
+        hour = str(self.time.hour)
+        if len(hour)==1:
+            hour = '0'+hour
+        minute = str(self.time.minute)
+        if len(minute)==1:
+            minute = '0'+minute
+        
+        time = month + '/' + day + ' ' + hour + ":" + minute
+        return time;        

@@ -4,6 +4,9 @@
 <!-- 반복되지 않는 부분 시작 -->
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
 <a href="{% url 'logout' %}">Log Out</a>
+<image src = "{{user.image}}"></image>
+{{user.get_full_name}}
+회원가입일 : {{user.get_date_joined}}
 
 <form class="user" method = "post" action = "{% url 'register' %}">
     {% csrf_token %}

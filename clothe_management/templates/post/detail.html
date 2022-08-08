@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static %}
 {% block content %}
 <!-- 반복되지 않는 부분 시작 -->
@@ -6,5 +7,17 @@
 {% include "post/base.html" %}
 {% include "post/side.html" %}
 <h1>{{title}}</h1>
+<img src = "{{post.user.image}}">
+{{post.writer}}
+{{post.get_time}}
+수정
+삭제
+{{post.title}}
+{{post.content}}
+<input id = "btn-like" type='button' value = '좋아요'>
+{{post.likes}}
+
+<script type = 'text/javascript'>var post_id = "{{post.id}}"</script>
+<script type = "text/javascript" src = "{% static 'js/post/post.js' %}"></script>
 <!-- 반복되지 않는 부분 끝 -->
 {% endblock content %}
