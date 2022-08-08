@@ -1,5 +1,9 @@
 from django.db import models
 
-# Create your models here.
-class chat(models.Model):
-    time = models.DateTimeField()
+class ChatRoom(models.Model):
+    users = models.ForeignKey('account.myUser',on_delete=models.CASCADE)
+
+class Message(models.Model):
+    users = models.OneToOneField('account.myUser',on_delete=models.CASCADE)
+    time = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()

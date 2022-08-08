@@ -43,13 +43,13 @@ def add(request,type):
 
     }
     if request.method == "POST":
-        print(request.POST)
         form = PostForm(request.POST)
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.views = 0
             new_post.annonymous = True if request.POST.getlist("annonymous[]") else False
-            new_post.image = request.FILES['image']
+            if request.FILES.get('image'):
+                new_post.image = request.FILES['image']
             new_post.user = myUser.objects.get(id=request.user.id)
 
             new_post.save()

@@ -3,7 +3,6 @@ var page_num = 0
 var total_page_num
 
 $(document).ready(function(){
-    console
     if (clothes=='[]'){
         clothes = []
     }
@@ -79,7 +78,7 @@ function print_clothes(page_num){
     var start = 20*page_num;
     var end = (img_url.length<20*(page_num+1)-1)?img_url.length:20*(page_num+1)-1
     
-    for(var i = start; i<=end;i++){
+    for(var i = start; i<end;i++){
         if(i%4==0){
             var row = document.createElement('div');
             $(row).addClass('row row-cols-4')
