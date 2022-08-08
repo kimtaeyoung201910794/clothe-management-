@@ -5,11 +5,29 @@ from account.forms import UserForm
 from account.models import myUser
 from django.contrib import messages
 from django.core.mail import EmailMessage
-
 from django.template.loader import render_to_string
+
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from bs4 import BeautifulSoup
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 
 import string
 import random
+
+def load_img():
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get('https://www.naver.com/')
+
+    html = driver.page_source
+    #element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID, 'adaptive')))
+    soup = BeautifulSoup(html, 'html.parser')
+    print(soup)    
+    
+ 
+    
 
 def load(request):
     return redirect('login')
@@ -36,6 +54,7 @@ def login(request):
     return render(request,"login/login.html")
 
 def home(request):
+    load_img()
     return render(request, 'index.html')
 
 def forgot_password(request):
