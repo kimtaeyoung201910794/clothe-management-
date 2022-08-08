@@ -3,55 +3,203 @@
 {% block content %}
 <!-- 반복되지 않는 부분 시작 -->
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
-<input type = button value = 'add clothes' onclick = location.href="{% url 'add_clothe' %}">
-<a href="{% url 'clothe_view' 'all' %}">All Products</a>
-<a href="{% url 'clothe_view' 'parent_category?=top' %}">top</a>
-<a href="{% url 'clothe_view' 'parent_category?=bottom' %}">bottom</a>
-<a href="{% url 'clothe_view' 'parent_category?=shoes' %}">shoes</a>
-<a href="{% url 'clothe_view' 'parent_category?=ACCs' %}">ACCs</a>
 
-    <a href="{% url 'clothe_view' 'child_category?=반팔' %}">반팔</a>
-    <a href="{% url 'clothe_view' 'child_category?=긴팔' %}">긴팔</a>
-    <a href="{% url 'clothe_view' 'child_category?=긴바지' %}">긴바지</a>
-    <a href="{% url 'clothe_view' 'child_category?=반바지' %}">반바지</a>
-    <a href="{% url 'clothe_view' 'child_category?=운동화' %}">운동화</a>
-    <a href="{% url 'clothe_view' 'child_category?=구두' %}">구두</a>
-    <a href="{% url 'clothe_view' 'child_category?=슬리퍼' %}">슬리퍼</a>
-    <a href="{% url 'clothe_view' 'child_category?=시계' %}">시계</a>
-    <a href="{% url 'clothe_view' 'child_category?=가방' %}">가방</a>
+<Html>
 
-    <a href="{% url 'clothe_view' 'season?=봄' %}">spring</a>
-    <a href="{% url 'clothe_view' 'season?=여름' %}">summer</a>
-    <a href="{% url 'clothe_view' 'season?=가을' %}">fall</a>
-    <a href="{% url 'clothe_view' 'season?=겨울' %}">winter</a>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <a href="{% url 'clothe_view' 'style?=스트릿' %}">street</a>
-    <a href="{% url 'clothe_view' 'style?=캐주얼' %}">casual</a>
-    <a href="{% url 'clothe_view' 'style?=댄디' %}">dandy</a>
-    <a href="{% url 'clothe_view' 'style?=스포츠' %}">sports</a>
-    <a href="{% url 'clothe_view' 'style?=포멀' %}">formal</a>
-    <a href="{% url 'clothe_view' 'style?=레트로' %}">retro</a>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=빨강' %}" value="빨강">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=주황' %}" value="주황">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=노랑' %}" value="노랑">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=초록' %}" value="초록">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=파랑' %}" value="파랑">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=남색' %}" value="남색">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=보라색' %}" value="보라색">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=검은색' %}" value="검은색">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=회색' %}" value="회색">
-    <input type="radio" name="color" onclick = location.href="{% url 'clothe_view' 'color?=흰색' %}" value="흰색">
-<div id = "card-area" class = 'container'></div>
-<nav aria-label="Page navigation example">
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'css/views_style.css' %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+
+
+  <title>open your closet</title>
+
+  <style>
+    body {
+      background-image: url("{% static 'img/cloth_main.png' %}");
+      background-size: cover;
+    }
+
+    body {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    #add_cloth_btn {
+      position: relative;
+      right: 20px;
+      top: 40px;
+    }
+
+    #views_title_bar {
+      border-bottom: 1px;
+      border-color: black;
+    }
+    main{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <input type=button id="add_cloth_btn" class="btn btn-success btn-sm" value='add clothes'
+    onclick=location.href="{% url 'add_clothe' %}">
+  <a href="{% url 'clothe_view' 'all' %}">All Products</a>
+
+  <div id="views_title_bar" class="container">
+    <div class="row row-cols-4">
+      <div class="col">Category</div>
+      <div class="col">Season</div>
+      <div class="col">Style</div>
+      <div class="col">Color</div>
+    </div>
+  </div>
+
+  <a href="{% url 'clothe_view' 'parent_category?=top' %}">top</a>
+  <a href="{% url 'clothe_view' 'parent_category?=bottom' %}">bottom</a>
+  <a href="{% url 'clothe_view' 'parent_category?=shoes' %}">shoes</a>
+  <a href="{% url 'clothe_view' 'parent_category?=ACCs' %}">ACCs</a>
+
+  <a href="{% url 'clothe_view' 'child_category?=반팔' %}">반팔</a>
+  <a href="{% url 'clothe_view' 'child_category?=긴팔' %}">긴팔</a>
+  <a href="{% url 'clothe_view' 'child_category?=긴바지' %}">긴바지</a>
+  <a href="{% url 'clothe_view' 'child_category?=반바지' %}">반바지</a>
+  <a href="{% url 'clothe_view' 'child_category?=운동화' %}">운동화</a>
+  <a href="{% url 'clothe_view' 'child_category?=구두' %}">구두</a>
+  <a href="{% url 'clothe_view' 'child_category?=슬리퍼' %}">슬리퍼</a>
+  <a href="{% url 'clothe_view' 'child_category?=시계' %}">시계</a>
+  <a href="{% url 'clothe_view' 'child_category?=가방' %}">가방</a>
+
+  <a href="{% url 'clothe_view' 'season?=봄' %}">spring</a>
+  <a href="{% url 'clothe_view' 'season?=여름' %}">summer</a>
+  <a href="{% url 'clothe_view' 'season?=가을' %}">fall</a>
+  <a href="{% url 'clothe_view' 'season?=겨울' %}">winter</a>
+
+  <a href="{% url 'clothe_view' 'style?=스트릿' %}">street</a>
+  <a href="{% url 'clothe_view' 'style?=캐주얼' %}">casual</a>
+  <a href="{% url 'clothe_view' 'style?=댄디' %}">dandy</a>
+  <a href="{% url 'clothe_view' 'style?=스포츠' %}">sports</a>
+  <a href="{% url 'clothe_view' 'style?=포멀' %}">formal</a>
+  <a href="{% url 'clothe_view' 'style?=레트로' %}">retro</a>
+
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=빨강' %}" value="빨강">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=주황' %}" value="주황">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=노랑' %}" value="노랑">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=초록' %}" value="초록">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=파랑' %}" value="파랑">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=남색' %}" value="남색">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=보라색' %}" value="보라색">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=검은색' %}" value="검은색">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=회색' %}" value="회색">
+  <input type="radio" name="color" onclick=location.href="{% url 'clothe_view' 'color?=흰색' %}" value="흰색">
+  <div id="card-area" class='container'></div>
+<main>
+  <div class="container">
+    <div class="row row-cols-4">
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="col card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item disabled"><a class="page-link" >Previous</a></li>
-      <li class="page-item"><a class="page-link" >Next</a></li>
+      <li class="page-item disabled"><a class="page-link">Previous</a></li>
+      <li class="page-item"><a class="page-link">Next</a></li>
     </ul>
   </nav>
-</div>
+  </div>
 
-<script type = "text/javascript">var clothes = "{{clothes}}"</script>
-<script src = "{% static 'js/clothe/views.js' %}"></script>
+  <script type="text/javascript">var clothes = "{{clothes}}"</script>
+  <script src="{% static 'js/clothe/views.js' %}"></script>
+</body>
+
+</Html>
+
 <!-- 반복되지 않는 부분 끝 -->
 {% endblock content %}

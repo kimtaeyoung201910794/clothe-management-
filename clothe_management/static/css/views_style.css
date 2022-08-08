@@ -1,0 +1,17 @@
+body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#add_cloth_btn
+{
+    position: relative;
+    right:20px;
+    top:40px;
+}
+
+#views_title_bar{
+    border-bottom: 1px;
+    border-color: black;
+}
