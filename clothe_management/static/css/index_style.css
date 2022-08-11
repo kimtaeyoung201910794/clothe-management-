@@ -1,169 +1,178 @@
+html,body {
+  position: static;
+  height: 100%;
+}
 
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
+body {
+  font-family: 'IBM Plex Sans KR';
+  background: #eee;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    font-family: 'IBM Plex Sans KR';
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
+/*header*/
 
-  main {
-    height: 700px;
-  }
+header {
+  position: relative;
+  height: 100vh;
 
-  footer{
-    height: 700px;
-  }
-  main #main_title{
-    display: flex;
-    justify-content: center;
-    color: white;    
-    font-size: 80px;
-  }
-  main #index_container{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  } 
-   main #index_container::after {
-      width: 100%;
-      height: 100%;
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 0.5;
-      background-color: black;
-  }
+}
 
-  header {
-    height: 700px;
+header #header_black {
+  position: absolute;
+  width: 100vw;
+  height: 7vh;
+  top: 93vh;
+}
 
-  }
+/*main*/
 
-  section {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 5%;
-  }
+main {
+  height: 100vh;
+  position: relative;
+}
 
-  section div {
-    background-color: #ff9800;
-    width: 100%;
-    height: 300px;
-  }
+main #main_title {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 80px;
+}
 
-  /* Scroll Animation (sa, 스크롤 애니메이션) */
-  .sa {
-    opacity: 0;
-    transition: all .5s ease;
-  }
+main #index_container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-  /* 왼쪽에서 오른쪽으로 페이드 인 */
-  .sa-right {
-    transform: translate(-100px, 0);
-  }
-
-  .sa-up {
-    transform: translate(0, 100px);
-    width: 100%;
-    height: 100%;
-  }
-
-  .sa-left {
-    transform: translate(100px, 0);
-  }
-
-  .sa.show {
-    opacity: 1;
-    transform: none;
-  }
-  header #header_black{
-    position: relative;
-    width: 100%;
-    height: 10%;
-    top: 90%;
-  }
-
-  main #main_black{
-    position: relative;
-    width: 100%;
-    height: 10%;
-    bottom: 10%;
-  }
-
-  footer #footer_black{
-    position: relative;
-    width: 100%;
-    height: 10%;
-    bottom: 20%;
-  }
-
-  #index_todays_pick{
-    position: relative;
-    left: 75%;
-    bottom: 78%;
-    border-bottom: black solid 1px;
-    border-width: 100%;
-    width: 200px;
-
-  }
-  
-  #index_My_looks{
-    position: relative;
-    left: 75%;
-    bottom: 68%;
-    border-bottom: black solid 1px;
-    border-width: 100%;
-    width: 200px;
-  }
+main #index_container::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+  background-color: black;
+}
 
 
-  <!--swiper-->
+main #main_black {
+  position: absolute;
+  width: 100vw;
+  height: 7vh;
+  top: 93vh;
+}
 
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
+section {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+}
 
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
+section div {
+  width: 70vw;
+  height: auto;
+}
 
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
+/*footer*/
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+footer {
+  height: 100vh;
+  position: relative;
+}
 
-  .swiper-pagination{
-    top: 90%;
-  }
+footer #footer_black {
+  position: absolute;
+  width: 100vw;
+  height: 7vh;
+  top: 93vh;
+}
+
+#index_todays_pick {
+  position: relative;
+  left: 75vw;
+  bottom: 75vh;
+  border-bottom: black solid 1px;
+  border-width: 100%;
+  width: 200px;
+
+}
+
+#index_My_looks {
+  position: relative;
+  left: 75vw;
+  bottom: 65vh;
+  border-bottom: black solid 1px;
+  border-width: 100%;
+  width: 200px;
+}
+
+/* Scroll Animation (sa, 스크롤 애니메이션) */
+.sa {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+/* 왼쪽에서 오른쪽으로 페이드 인 */
+.sa-right {
+  transform: translate(-100px, 0);
+}
+
+.sa-up {
+  transform: translate(0, 100px);
+  width: 100%;
+  height: 100%;
+}
+
+.sa-left {
+  transform: translate(100px, 0);
+}
+
+.sa.show {
+  opacity: 1;
+  transform: none;
+}
+
+
+<!--swiper-->
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination {
+  top: 90%;
+}

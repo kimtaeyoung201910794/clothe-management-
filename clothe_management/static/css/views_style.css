@@ -1,65 +1,94 @@
-body{
+body {
+    font-family: 'IBM Plex Sans KR';
     position: relative;
     height: 100%;
+    width: 100vw;
+}
+
+header {
+    width: 100vw;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#header3 {
+    position: relative;
+}
+
+#cloth_logo {
+    height: inherit;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.first_ul{
-    list-style:none;
+#add_cloth_btn {
+    position: absolute;
+    bottom: 2vh;
+    right: 10vw;
+}
 
-}
-ul a{
-    text-decoration: none;
-    color: white;
-}
-li{
+.first_ul {
     list-style: none;
 }
 
-#add_cloth_btn
-{
-    position: relative;
-    right:20px;
-    top:40px;
+ul a {
+    text-decoration: none;
+    color: white;
 }
 
-#views_title_bar{
+li {
+    list-style: none;
+}
+
+#category_bar {
+    width: 100%;
+    margin: 0%;
     border-bottom: 1px solid black;
-
-    border-width: 100%;
 }
 
-#category_bar .col{
+#category_bar .col {
     text-align: center;
 }
 
 
-#hide_menu{
-    padding-top: 5%;
+#hide_menu {
+    padding-top: 3vh;
     display: none;
     width: 100%;
-    height: 400px;
+    height: auto;
     background-color: black;
 }
 
-#hide_menu .row{
+#hide_menu .row {
     width: 100%;
 }
 
-#views_title_bar:hover #hide_menu{
+#views_title_bar:hover #hide_menu {
     display: block;
     background-color: black;
     color: white;
 }
 
-#card-area .row{
+#card-area .row {
     height: 200px;
 }
 
-.card{
+.card {
     display: flex;
     text-align: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+}
+
+.custom_btn {
+    width: 30px;
+    height: 10px;
+
+}
+
+#view_pagination{
+    margin-top: 10px;
 }
