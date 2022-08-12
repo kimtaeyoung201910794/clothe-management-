@@ -1,5 +1,5 @@
 from django.db import models
-
+from chat.models import Message
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -10,6 +10,7 @@ class myUser(AbstractUser):
     gender = models.CharField(max_length=10)
     age = models.IntegerField()
     image = models.ImageField(upload_to = 'images/',default = "/static/img/account.png")
+    unread_message = models.IntegerField(null=False,default=0)
 
     def set_password(self, raw_password):
         self.password = make_password(raw_password)
@@ -27,4 +28,10 @@ class myUser(AbstractUser):
             day = '0'+day
         
         time = year + '.' + month + '.' + day
-        return time;      
+        return time;
+    @property
+    def set_unread_messages(self):
+        messages = Message.objects.filter(user_id = self.id)
+        unread = [message for message in messages if message.read==False]
+        self.unread_message = len(unread)
+        return self.unread_message  
