@@ -1,18 +1,28 @@
 var img_url =[]
+var clothe_id =[]
+
 var page_num = 0
 var total_page_num
 
 $(document).ready(function(){
-    if (clothes=='[]'){
-        clothes = []
+    if (clothe_id=='[]'){
+        img_url = []
+        clothe_id = []
     }
     else{
-        clothes = clothes.split(",")
-        for(var url of clothes){
+        image_urls = image_urls.split(",")
+        for(var url of image_urls){
             img_url.push(url.substring(url.indexOf("&#x27;")+6,url.lastIndexOf("&#x27;")))
         }
- 
+
+        clothe_ids = clothe_ids.substring(1,clothe_ids.length-1)
+        clothe_ids = clothe_ids.split(", ")
+
+        for(var id of clothe_ids){
+            clothe_id.push(id)
+        }
     }
+
     print_clothes(page_num)
     print_pagenations()
 
@@ -91,11 +101,15 @@ function print_clothes(page_num){
         var card = document.createElement('div');
         $(card).addClass('card')
         col.append(card)
+        
+        var a = document.createElement('a');
+        $(a).attr("href","/clothe/detail/"+clothe_id[i])
+        card.append(a)
 
         var img = document.createElement('img');
         $(img).addClass('card-img-top');
         $(img).attr("src",img_url[i]);
-        card.append(img);
+        a.append(img);
     }
 }
 
