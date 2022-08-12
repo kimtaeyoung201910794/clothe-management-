@@ -6,6 +6,7 @@
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
 {% include "post/base.html" %}
 {% include "post/side.html" %}
+{% include "post/modals.html" %}
 <h1>{{title}}</h1>
 <img src = "{{post.user.image}}">
 {{post.writer}}
@@ -16,6 +17,8 @@
 {{post.content}}
 <input id = "btn-like" type='button' value = '좋아요'>
 {{post.likes}}
+<input type='button' value = '쪽지보내기' data-bs-toggle="modal" data-bs-target="#modal-send-msg">
+<img src = "{{post.image.url}}" alt="{{ article.image }}">
 
 <script type = 'text/javascript'>var post_id = "{{post.id}}"</script>
 <script type = "text/javascript" src = "{% static 'js/post/post.js' %}"></script>
