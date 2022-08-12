@@ -10,7 +10,7 @@ class Post(models.Model):
     views = models.IntegerField()
     title = models.TextField(default = '')
     content = models.TextField(null=True)
-    image = models.ImageField(upload_to='images/',null=True)
+    image = models.ImageField(upload_to='images/',blank=True)
 
     @property
     def created_string(self):
@@ -53,4 +53,5 @@ class Post(models.Model):
             minute = '0'+minute
         
         time = month + '/' + day + ' ' + hour + ":" + minute
-        return time;        
+        return time;
+    
