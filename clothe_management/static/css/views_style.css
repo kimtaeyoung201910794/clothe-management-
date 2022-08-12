@@ -92,3 +92,8 @@ li {
 #view_pagination{
     margin-top: 10px;
 }
+
+.card-img-top{
+    max-width: 100%;
+    height: auto;
+}
