@@ -24,7 +24,10 @@ main {
     width: 300px;
     height: 300px;
 }
-
+#btn-img>img{
+    width: 100%;
+    height:100%;
+}
 #position_flex1,#position_flex2,#position_flex3{
     display: flex;
     justify-content: flex-start;

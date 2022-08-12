@@ -81,4 +81,8 @@ def weather(request):
     return render(request,'looks/weather.html')
 
 def detail(request, clothe_id):
-    return render(request,'clothe/detail.html')
+    data = clothe.objects.get(id = clothe_id)
+    context = {
+        "clothe" : data
+    }
+    return render(request,'clothe/detail.html',context)
