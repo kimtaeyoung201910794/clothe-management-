@@ -22,6 +22,7 @@ urlpatterns = [
     path('search/',clothe_view.search,name='search'),
     path('clothe/add',clothe_view.add,name='add_clothe'),
     path('clothe/view/<str:view_for>',clothe_view.list,name = "clothe_view"),
+    path('clothe/detail/<str:clothe_id>',clothe_view.detail,name = "clothe_detail"),
     path('community/main',post_view.main,name = 'community_main'),
     path('community/my/<str:type>/',post_view.my_post,name = 'my_post'),
     path('community/<str:type>/',post_view.boards,name = 'boards'),
