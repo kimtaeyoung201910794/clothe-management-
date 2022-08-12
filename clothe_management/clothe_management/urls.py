@@ -10,6 +10,7 @@ from clothe import views as clothe_view
 from post import views as post_view
 from chat import views as chat_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',account_view.load),
@@ -34,6 +35,10 @@ urlpatterns = [
     path('weather/',clothe_view.weather,name = 'weather'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('mypage/',account_view.setting,name = 'settings'),
-    path('chattings/',chat_view.chatting,name = "chattings"),
+    path('chattings/<str:chatroom_id>',chat_view.chatting,name = "chattings"),
+    path('send_msg/',chat_view.send_msg,name = "send_msg"),
+
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
