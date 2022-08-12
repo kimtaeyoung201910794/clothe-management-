@@ -34,8 +34,10 @@ def add(request):
     return render(request,'clothe/add.html')
 
 def list(request, view_for):
-    clothes = []
+    img_urls = []
+    clothe_ids = []
     datas = []
+
     userid = request.user.id
     if view_for == 'all':
         datas = clothe.objects.filter(user_id = userid)
@@ -55,8 +57,13 @@ def list(request, view_for):
         color = view_for[view_for.find('?=')+2:]
         datas = clothe.objects.filter(user_id = userid,color = color)
     for data in datas:
-        clothes.append(data.image.url)     
-    return render(request,'list/views.html',{'userid':userid, 'clothes':clothes})
+        img_urls.append(data.image.url)
+        clothe_ids.append(data.id)
+    context = {
+        'img_urls':img_urls,
+        'clothe_ids':clothe_ids
+    }
+    return render(request,'list/views.html',context)
 
 def mylooks(request):
     return render(request,'looks/main.html')
@@ -72,3 +79,6 @@ def favorite(request):
 
 def weather(request):
     return render(request,'looks/weather.html')
+
+def detail(request, clothe_id):
+    return render(request,'clothe/detail.html')
