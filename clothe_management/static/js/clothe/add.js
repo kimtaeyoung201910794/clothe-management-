@@ -33,3 +33,18 @@ $('#btn-img').click(function(){
     $('#form-img').trigger('click');
 });
 
+$(function() {
+    $("#form-img").on('change', function(){
+    readURL(this);
+    });
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $('#input_img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
