@@ -16,7 +16,28 @@ $(document).ready(function(){
     $(select_parent).trigger("change")
     $('#select-child').val(cur_child).prop("selected",true);
     
-    
+    var season_labels = $("#position_flex1>label");
+    for(var label of season_labels){
+        if($(label).text() == cur_season){
+            console.log(label)
+            $(label).trigger("click")
+        }
+    }
+    var style_labels = $("#position_flex2>label");
+    for(var label of style_labels){
+        if($(label).text() == cur_style){
+            console.log(label)
+            $(label).trigger("click")
+        }
+    }
+    var color_inputs = $("#position_flex3>input");
+    for(var input of color_inputs){
+        
+        if($(input).val() == cur_color){
+            console.log(input)
+            $(input).next().trigger("click")
+        }
+    }
 });
 
 $('#select-parent').change(function(){
@@ -38,3 +59,17 @@ $('#btn-img').click(function(){
     $('#form-img').trigger('click');
 });
 
+$(function() {
+    $("#form-img").on('change', function(){
+    readURL(this);
+    });
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $('#input_img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}

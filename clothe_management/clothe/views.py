@@ -33,6 +33,37 @@ def add(request):
 
     return render(request,'clothe/add.html')
 
+def edit(request, pk):
+    
+    if request.method == "POST":
+        form = clotheForm(request.POST)
+        if form.is_valid():
+            target = clothe.objects.get(id = pk)
+            target.name = request.POST.get('name')
+            if request.POST.get('favorite'):
+                target.favorite = True
+            else:
+                target.favorite = False
+            target.parent_category = request.POST.get('parent_category')
+            target.child_category = request.POST.get('child_category')
+            target.season = request.POST.get('season')
+            if request.FILES:
+                target.image = request.FILES['image']
+            target.style = request.POST.get('style')
+            target.color = request.POST.get('color')
+            target.memo = request.POST.get('memo')
+
+            target.save()
+
+            return redirect('home')
+
+    return redirect('clothe_detail',pk)
+
+def delete(request, pk):
+    target = clothe.objects.get(id = pk)
+    target.delete()
+    return redirect('home')
+
 def list(request, view_for):
     img_urls = []
     clothe_ids = []

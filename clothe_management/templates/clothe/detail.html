@@ -39,17 +39,15 @@
 
 <body>
     <main>
-
-        <form id="add_cloth_form" class="user" method="post" action="{% url 'add_clothe' %}"
+        <form id="edit_cloth_form" class="user" method="post" action="{% url 'edit_clothe' clothe.id %}"
             enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row align-items-center">
-            <div id="input_img" class="container col">
-                <input type="file" name='image' id='form-img' style="display:none">
-                <button id='btn-img'>
-                    <img src = "{{clothe.image.url}}">
-                </button>
-            </div>
+                <div id="img_div" class="container col">
+                    <input type="file" name='image' id='form-img' style="display:none">
+                    <button id='btn-img' type = "button"><img id="input_img" src="{{clothe.image.url}}" alt="이미지 미리보기"></button>
+                    <input type = "checkbox" name = 'favorite'>
+                </div>
 
             <div id="input_text" class="container col">
                 <div id="input_name" class="input-group mb-3">
@@ -154,8 +152,10 @@
             </div>
             <footer id="submit_btn">
                 <input class="btn" type='submit' value="제출">
+                <a href = "{% url 'delete_clothe' clothe.id %}">삭제</a>
             </footer>
         </form>
+        
     </main>
 
     <script type = "text/javascript">
