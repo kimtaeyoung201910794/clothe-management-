@@ -1,0 +1,255 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="{% static 'css/loading.css' %}"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>open your closet</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        main {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #logo_div {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .btn-success {
+            height: fit-content;
+            width: fit-content;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+
+        .container {
+            text-align: center;
+            background-color: #e74c3c;
+            overflow: hidden;
+        }
+
+        .box:nth-child(2n-1) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .box {
+            display: inline-block;
+            height: 200px;
+            width: 33.3%;
+            float: left;
+            position: relative;
+            /*margin:0 -4px -5px -2px;*/
+            transition: all .2s ease;
+        }
+
+
+
+        .box p {
+            color: #777;
+            font-family: Lato, "Helvetica Neue";
+            font-weight: 300;
+            position: absolute;
+            font-size: 20px;
+            width: 100%;
+            height: 25px;
+            text-align: center;
+            bottom: 0px;
+            margin: 0;
+            top: 160px;
+            background-color: #fff;
+            opacity: 0;
+            text-transform: uppercase;
+            transition: all .2s ease;
+        }
+
+        .box:hover p {
+            bottom: 0px;
+            top: 175px;
+            opacity: 1;
+            transition: all .2s ease;
+            z-index: 2;
+        }
+
+
+
+        /* MEDIA QUERIES */
+        @media (max-width: 700px) {
+            .box {
+                width: 50%;
+            }
+
+            .box:nth-child(2n-1) {
+                background-color: inherit;
+            }
+
+            .box:nth-child(4n),
+            .box:nth-child(4n-3) {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+        }
+
+        @media (max-width: 420px) {
+            .box {
+                width: 100%;
+            }
+
+            .box:nth-child(4n),
+            .box:nth-child(4n-3) {
+                background-color: inherit;
+            }
+
+            .box:nth-child(2n-1) {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+        }
+
+        .loader3 {
+            position: relative;
+            width: 150px;
+            height: 20px;
+
+            top: 45%;
+            top: -webkit-calc(50% - 10px);
+            top: calc(50% - 10px);
+            left: 25%;
+            left: -webkit-calc(50% - 75px);
+            left: calc(50% - 75px);
+        }
+
+        .loader3:after {
+            content: "LOADING ...";
+            color: #fff;
+            font-family: Lato, "Helvetica Neue";
+            font-weight: 200;
+            font-size: 16px;
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            left: 0;
+            top: 0;
+            background-color: #e74c3c;
+            z-index: 1;
+        }
+
+        .loader3:before {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            top: -5px;
+            left: 0px;
+            height: 30px;
+            width: 0px;
+            z-index: 0;
+            opacity: 1;
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            -webkit-animation: loader3 10s ease-in-out infinite;
+            animation: loader3 10s ease-in-out infinite;
+        }
+
+
+
+        @-webkit-keyframes loader3 {
+            0% {
+                width: 0px;
+            }
+
+            70% {
+                width: 100%;
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0;
+                width: 100%;
+            }
+
+            100% {
+                opacity: 0;
+                width: 0px;
+            }
+        }
+
+        @keyframes loader3 {
+            0% {
+                width: 0px;
+            }
+
+            70% {
+                width: 100%;
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0;
+                width: 100%;
+            }
+
+            100% {
+                opacity: 0;
+                width: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <div id="logo_div">
+            <img class="animated infinite bounce delay-2s" src="../static/img/logo.png" alt="">
+        </div>
+        <div class="box">
+            <div class="loader3"></div>
+            <p>loader 3</p>
+    </main>
+
+
+</body>
+
+</html>
