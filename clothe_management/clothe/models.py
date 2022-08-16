@@ -13,3 +13,6 @@ class clothe(models.Model):
     color = models.TextField()
     style = models.TextField()
     memo = models.TextField()
+
+class looks(models.Model):
+    user = models.ForeignKey('account.myuser',on_delete=models.CASCADE)
