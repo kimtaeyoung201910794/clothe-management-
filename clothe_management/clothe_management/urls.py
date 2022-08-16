@@ -14,6 +14,7 @@ from chat import views as chat_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',account_view.load),
+    path('loading/',account_view.loading,name = 'loading'),
     path('crawling/',account_view.load_img,name = 'crawling'),
     path('home/',account_view.home,name = 'home'),
     path('login/', auth_views.LoginView.as_view(template_name='login/login.html'), name='login'),

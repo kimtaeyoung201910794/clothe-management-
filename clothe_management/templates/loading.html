@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 
 <head>
@@ -251,7 +252,11 @@
             <div class="loader3"></div>
     </main>
 
-
+    <script> 
+        $(document).ready(function(){
+            location.href = "{% url 'crawling' %}";
+        });
+    </script>
 </body>
 
 </html>

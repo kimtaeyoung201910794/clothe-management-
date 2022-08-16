@@ -21,6 +21,9 @@ import time
 
 img_urls=[]
 
+def loading(request):
+    return render(request,'loading.html')
+
 def load_img(request):
 
     options = webdriver.ChromeOptions() # 크롬 옵션 객체 생성
