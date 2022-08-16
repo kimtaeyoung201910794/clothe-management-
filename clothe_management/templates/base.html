@@ -31,7 +31,7 @@
     integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
     crossorigin="anonymous"></script>
 
-
+    <script src="https://kit.fontawesome.com/549125b7f5.js" crossorigin="anonymous"></script>
 
   <title>open your closet</title>
 </head>
@@ -201,27 +201,7 @@
                   </div>
                 </div>
 
-                <div class="accordion-item bg-black text-white">
-                  <h2 class="accordion-header" id="flush-headingSix">
-                    <button class="accordion-button collapsed bg-black text-white" type="button"
-                      data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
-                      aria-controls="flush-collapseSix">
-                      Community
-                    </button>
-                  </h2>
-                  <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'chattings' '0' %}">Mesage</a>
-                          {{user.set_unread_messages}}
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                
                 <div class="accordion-item bg-black text-white">
                   <h2 class="accordion-header" id="flush-headingSeven">
                     <button class="accordion-button collapsed bg-black text-white" type="button"
@@ -268,6 +248,16 @@
 
             </li>
             
+            <li class="nav-item border-white" style="border-top: 1px solid white">
+              <a class="nav-link active" href="{% url 'community_main' %}">Community</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active" href="{% url 'chattings' '0' %}">Mesage
+                <span class="badge bg-danger">
+                  {{user.set_unread_messages}}</span>
+              </a>
+              
+            </li>
             <li class="nav-item ">
               <a class="nav-link active" href="{% url 'mylooks' %}">My Looks</a>
             </li>
@@ -278,8 +268,10 @@
               <a class = "nav-link active" href="{% url 'weather' %}">Today's Pick</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'logout' %}">Log Out</a>
+              
+                <a class="nav-link active" href="{% url 'logout' %}">Log Out</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'settings' %}">Settings</a>
             </li>
@@ -288,11 +280,15 @@
         </div>
       </div>
     </div>
+
   </nav>
 
+  <div id="totop_btn_div">
+    <button id="totop_btn" class="btn btn-dark btn-sm">Back To TOP <i class="fa-solid fa-arrow-up" style="margin-left:5px;"></i></button>
+  </div>
 
 
-
+  <script src="{% static 'js/base.js' %}"></script>
   <script type="text/javascript">var keyward = "{{keyward}}"</script>
   <script
     type="text/javascript">var dict_category = { 'top': ['긴팔', '반팔'], 'bottom': ['긴바지', '반바지'], 'shoes': ['운동화', '구두', '슬리퍼'], 'ACCs': ['시계', '가방'] }</script>

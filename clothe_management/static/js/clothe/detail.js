@@ -16,21 +16,21 @@ $(document).ready(function(){
     $(select_parent).trigger("change")
     $('#select-child').val(cur_child).prop("selected",true);
     
-    var season_labels = $("#position_flex1>label");
+    var season_labels = $("#input_season>label");
     for(var label of season_labels){
         if($(label).text() == cur_season){
             console.log(label)
             $(label).trigger("click")
         }
     }
-    var style_labels = $("#position_flex2>label");
+    var style_labels = $("#input_style>label");
     for(var label of style_labels){
         if($(label).text() == cur_style){
             console.log(label)
             $(label).trigger("click")
         }
     }
-    var color_inputs = $("#position_flex3>input");
+    var color_inputs = $("#input_color>input");
     for(var input of color_inputs){
         
         if($(input).val() == cur_color){

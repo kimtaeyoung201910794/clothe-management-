@@ -46,7 +46,8 @@
                 <div id="img_div" class="container col">
                     <input type="file" name='image' id='form-img' style="display:none">
                     <button id='btn-img' type = "button"><img id="input_img" src="{{clothe.image.url}}" alt="이미지 미리보기"></button>
-                    <input type = "checkbox" name = 'favorite'>
+                    <input type = "checkbox" name = 'favorite' id="heart">
+                    <label for="heart"></label>
                 </div>
 
             <div id="input_text" class="container col">
@@ -65,83 +66,80 @@
                     </select>
                 </div>
 
-                <div class="input-group mb-3" id="position_flex1">
+                <div class="input-group mb-3" id="input_season">
                     <span class="input-group-text" id="basic-addon1">Season</span>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check"  id="season1" name="season" autocomplete="off"  value="봄">
+                        <label class="btn btn-outline-secondary btn-sm" for="season1">봄</label>
+                      
+                        <input type="radio" class="btn-check"  id="season2" name="season" autocomplete="off" value="여름">
+                        <label class="btn btn-outline-secondary btn-sm" for="season2">여름</label>
+                      
+                        <input type="radio" class="btn-check" id="season3" name="season" autocomplete="off" value="가을">
+                        <label class="btn btn-outline-secondary btn-sm" for="season3">가을</label>
 
-                    <input class="form-check-input mt-0 btn-check" id="option1" type="radio" name="season" value="봄">
-                    <label id="sbtn1" class="btn btn-light" for="option1">봄</label>
-
-                    <input class="form-check-input mt-0 btn-check" id="option2" type="radio" name="season" value="여름">
-                    <label id="sbtn2" class="btn btn-light" for="option2">여름</label>
-
-
-                    <input class="form-check-input mt-0 btn-check" id="option3" type="radio" name="season" value="가을">
-                    <label id="sbtn3" class="btn btn-light" for="option3">가을</label>
-
-                    <input class="form-check-input mt-0 btn-check" id="option4" type="radio" name="season" value="겨울">
-                    <label id="sbtn4" class="btn btn-light" for="option4">겨울</label>
-
+                        <input type="radio" class="btn-check"  id="season4" name="season" autocomplete="off" value="겨울">
+                        <label class="btn btn-outline-secondary btn-sm" for="season4">겨울</label>
+                      </div>
                 </div>
 
-                <div class="input-group mb -3" id="position_flex2">
+                <div class="input-group mb -3" id="input_style">
                     <span class="input-group-text" id="basic-addon2">Style</span>
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check"  id="style1" name="style" autocomplete="off"value="댄디">
+                            <label class="btn btn-outline-secondary btn-sm" for="style1">댄디</label>
+                          
+                            <input type="radio" class="btn-check"  id="style2" name="style" autocomplete="off" value="포멀">
+                            <label class="btn btn-outline-secondary btn-sm" for="style2">포멀</label>
+                          
+                            <input type="radio" class="btn-check" id="style3" name="style" autocomplete="off" value="스포츠">
+                            <label class="btn btn-outline-secondary btn-sm" for="style3">스포츠</label>
+    
+                            <input type="radio" class="btn-check"  id="style4" name="style" autocomplete="off" value="레트로">
+                            <label class="btn btn-outline-secondary btn-sm" for="style4">레트로</label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option11" type="radio" name="style" value="댄디">
-                    <label id="tbtn1" class="btn btn-light" for="option11">댄디</label>
+                            <input type="radio" class="btn-check"  id="style5" name="style" autocomplete="off" value="캐주얼">
+                            <label class="btn btn-outline-secondary btn-sm" for="style5">캐주얼</label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option12" type="radio" name="style" value="포멀">
-                    <label id="tbtn2" class="btn btn-light" for="option12">포멀</label>
-
-
-                    <input class="form-check-input mt-1 btn-check" id="option13" type="radio" name="style" value="스포츠">
-                    <label id="tbtn3" class="btn btn-light" for="option13">스포츠</label>
-
-                    <input class="form-check-input mt-1 btn-check" id="option14" type="radio" name="style" value="레트로">
-                    <label id="tbtn4" class="btn btn-light" for="option14">레트로</label>
-
-                    <input class="form-check-input mt-1 btn-check" id="option15" type="radio" name="style" value="캐주얼">
-                    <label id="tbtn5" class="btn btn-light" for="option15">캐주얼</label>
-
-                    <input class="form-check-input mt-1 btn-check" id="option16" type="radio" name="style" value="스트릿"> 
-                    <label id="tbtn6" class="btn btn-light" for="option16">스트릿</label>
-
+                            <input type="radio" class="btn-check"  id="style6" name="style" autocomplete="off" value="스트릿">
+                            <label class="btn btn-outline-secondary btn-sm" for="style6">스트릿</label>
+                          </div>
                 </div>
 
-                <div class="input-group mb -3" id="position_flex3">
+                <div class="input-group mb -3" id="input_color">
                     <span class="input-group-text" id="basic-addon3">Color</span>
 
-                    <input class="form-check-input mt-1 btn-check" id="option21" type="radio" name="color" value="빨강">
-                    <label id="cbtn1" class="btn" for="option21" style="background-color: red;"></label>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check"  id="color1" name="color" autocomplete="off" value="빨강">
+                        <label class="btn btn-outline-primary" for="color1" style="background-color: red;"></label>
+                      
+                        <input type="radio" class="btn-check"  id="color2" name="color" autocomplete="off" value="주황">
+                        <label class="btn btn-outline-primary" for="color2" style="background-color: orange;"></label>
+                      
+                        <input type="radio" class="btn-check" id="color3" name="color" autocomplete="off" value="노랑">
+                        <label class="btn btn-outline-primary" for="color3" style="background-color: yellow;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option22" type="radio" name="color" value="주황">
-                    <label id="cbtn2" class="btn" for="option22" style="background-color: orange;"></label>
+                        <input type="radio" class="btn-check"  id="color4" name="color" autocomplete="off" value="초록">
+                        <label class="btn btn-outline-primary" for="color4" style="background-color: green;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option23" type="radio" name="color" value="노랑">
-                    <label id="cbtn3" class="btn" for="option23" style="background-color: yellow;"></label>
+                        <input type="radio" class="btn-check"  id="color5" name="color" autocomplete="off" value="파랑">
+                        <label class="btn btn-outline-primary" for="color5" style="background-color: blue;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option24" type="radio" name="color" value="초록">
-                    <label id="cbtn4" class="btn" for="option24" style="background-color: green;"></label>
+                        <input type="radio" class="btn-check"  id="color6" name="color" autocomplete="off" value="남색">
+                        <label class="btn btn-outline-primary" for="color6" style="background-color: navy;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option25" type="radio" name="color" value="파랑">
-                    <label id="cbtn5" class="btn" for="option25" style="background-color: blue;"></label>
+                        <input type="radio" class="btn-check"  id="color7" name="color" autocomplete="off" value="보라색">
+                        <label class="btn btn-outline-primary" for="color7" style="background-color: purple;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option26" type="radio" name="color" value="남색">
-                    <label id="cbtn6" class="btn" for="option26" style="background-color: navy;"></label>
+                        <input type="radio" class="btn-check"  id="color8" name="color" autocomplete="off" value="검은색">
+                        <label class="btn btn-outline-primary" for="color8" style="background-color: black;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option27" type="radio" name="color" value="보라색">
-                    <label id="cbtn7" class="btn" for="option27" style="background-color: purple;"></label>
+                        <input type="radio" class="btn-check"  id="color9" name="color" autocomplete="off" value="회색">
+                        <label class="btn btn-outline-primary" for="color9" style="background-color:gray;"></label>
 
-                    <input class="form-check-input mt-1 btn-check" id="option28" type="radio" name="color" value="검은색">
-                    <label id="cbtn8" class="btn" for="option28" style="background-color: black;"></label>
-
-                    <input class="form-check-input mt-1 btn-check" id="option29" type="radio" name="color" value="회색">
-                    <label id="cbtn9" class="btn" for="option29" style="background-color:gray;"></label>
-
-                    <input class="form-check-input mt-1 btn-check" id="option210" type="radio" name="color" value="흰색">
-                    <label id="cbtn10" class="btn" for="option210"
-                        style="background-color: white; border: 1px black solid"></label>
-
-
+                        <input type="radio" class="btn-check"  id="color10" name="color" autocomplete="off" value="흰색">
+                        <label class="btn btn-outline-primary" for="color10" style="background-color: white; border: 1px black solid"></label>
+                      </div>
                 </div>
             </div>
             </div>
@@ -151,12 +149,36 @@
                 <input id="input_memo" type="text" name="memo" value = "{{clothe.memo}}">
             </div>
             <footer id="submit_btn">
-                <input class="btn" type='submit' value="제출">
-                <a href = "{% url 'delete_clothe' clothe.id %}">삭제</a>
+                <input id="modify_btn" class="btn btn-success" type='submit' value="수정하기">
+                <button class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#exampleModal">삭제하기</button>           
             </footer>
+
+            
         </form>
         
+        
     </main>
+
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Open Your Closet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    정말로 삭제하시겠습니까 ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">돌아가기</button>
+                    <button type="button" class="btn btn-primary"><a href = "{% url 'delete_clothe' clothe.id %}">삭제하기</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
 
     <script type = "text/javascript">
         var cur_parent = "{{clothe.parent_category}}";

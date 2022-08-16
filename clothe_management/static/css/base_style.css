@@ -33,3 +33,14 @@
     position: absolute;
     right: 20px;
 }
+
+#totop_btn_div{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 2;
+}
+
+#totop_btn{
+    
+}
