@@ -29,7 +29,7 @@ success:function(data){
 
   let today = new Date();
   let year = today.getFullYear();
-  let month = today.getMonth();
+  let month = today.getMonth()+1;
   let date = today.getDate();
 
   const weekday = ['일','월','화','수','목','금','토'];

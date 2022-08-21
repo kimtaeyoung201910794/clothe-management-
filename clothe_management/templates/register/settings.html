@@ -3,47 +3,146 @@
 {% block content %}
 <!-- 반복되지 않는 부분 시작 -->
 <!-- base.html 에 '반복되지 않는 부분 시작' 바로 밑줄이라고 생각하고 작성할것-->
-<a href="{% url 'logout' %}">Log Out</a>
-<image src = "{{user.image}}"></image>
-{{user.get_full_name}}
-회원가입일 : {{user.get_date_joined}}
 
-<form class="user" method = "post" action = "{% url 'register' %}">
-    {% csrf_token %}
-    {% include 'login/form_error.html' %}
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="mb-3">
-        First name<br>
-        <input type="text" class="form-control" name = "first_name" placeholder="First Name">
-    </div>
-    <div class="mb-3">
-        Last Name<br>
-        <input type="text" class="form-control" name = "last_name">
-    </div>
-    <div class="mb-3">
-        Id(email)<br>
-        <input type="email" class="form-control" name = "username" autocomplete = "off">
-    </div>
-    <div class="mb-3">
-        Password<br>
-        <input type="password" class="form-control" name = "password1" autocomplete = "off">
-    </div>
-    <div class="mb-3">
-        비밀번호 확인
-        <input type="password" class="form-control" name = "password2" autocomplete = 'off'>
-    </div>
-    <div class="mb-3">
-        성별
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">남</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">여</label>
-    </div>
-    <div class="mb-3">
-        나이
-        <input type = 'number' class="form-control" name = "age">
-    </div>
-    <input type = 'submit'  class="btn btn-success" value="Create Account">
-</form>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/setting_style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+    <title>open your closet</title>
+</head>
+<body>
+    <header>
+        <div class="highbar">
+            <div class="container" id="mypage">
+                <h3>My page</h3>
+            </div>
+            <div id="btn_div" class="container">
+                <a href="">
+                    <h6>고객센터</h6>
+                </a>
+                <a href="">
+                    <h6>탈퇴하기</h6>
+                </a>
+                <a data-bs-toggle="modal" data-bs-target="#modal_logout">
+                    <h6>로그아웃</h6>
+                </a>
+
+              
+            </div>
+        </div>
+        <div class="middlebar">
+            <div class="container" id="user_img_div">
+                <img id="user_img" src="../static/img/user.png" alt="">
+            </div>
+            <div class="container" id="user_info_div">
+                <div>
+                    <h4>{{user.get_full_name}}</h4>
+                </div>
+                <div>회원가입일 : {{user.get_date_joined}}</div>
+            </div>
+        </div>
+        <div class="bottombar">
+            <div id="favorite_btn_div">
+                <img id="favorite_btn" src="../static/img/fullheart.png" alt="">
+            </div>
+            
+        </div>
+    </header>
+    <main>
+        <div class="container"></div>
+        <div class="basic_info_div container">
+            <div class="info_title container">
+                <h4>기본회원정보</h4>
+            </div>
+            <div class="info_photo container">
+                <div class="info_photo_title">
+                    <h6>사진</h6>
+                </div>
+                <div class="info_photo_outdiv">
+                    <div class="info_photo_indiv">
+                        <image class="photo" src="{{user.image}}" alt=""></image>
+                    </div>
+                    <div>회원님을 알릴수 있는 사진을 등록해주세요.</div>
+                </div>
+                <button class="btn btn-secondary" id="photo_modify_btn">사진변경</button>
+            </div>
+            <form class="user" method = "post" action = "{% url 'register' %}">
+                {% csrf_token %}
+                {% include 'login/form_error.html' %}
+            
+                <div class="mb-3">
+                    <div>First Name</div>
+                  
+                    <input type="text" class="form-control" name = "first_name" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <div>Last Name</div>
+                    <input type="text" class="form-control" name = "last_name">
+                </div>
+                <div class="mb-3">
+                    <div>Id(email)</div>
+                    <input type="email" class="form-control" name = "username" autocomplete = "off">
+                </div>
+                <div class="mb-3">
+                    <div>Password</div>
+                    <input type="password" class="form-control" name = "password1" autocomplete = "off">
+                </div>
+                <div class="mb-3">
+                    <div>비밀번호 확인</div>
+                    <input type="password" class="form-control" name = "password2" autocomplete = 'off'>
+                </div>
+                <div class="mb-3">
+                    <div>성별</div>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">남</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">여</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div>나이</div>
+                    <input type = 'number' class="form-control" name = "age">
+                </div>
+                <div class="container submit_btn">
+                    <input type = 'submit'  class="btn btn-success" value="정보수정">
+                </div>
+                
+            </form>
+            </div>
+            </main>
+
+</body>
+</html>
+
+
+
 <!-- 반복되지 않는 부분 끝 -->
 {% endblock content %}

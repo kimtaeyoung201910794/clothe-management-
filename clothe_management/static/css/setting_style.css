@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-ExtraBold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+        header {
+            font-family: 'Pretendard-ExtraBold';
+            background-color: black;
+            width: 100vw;
+            margin-top: 50px;
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+
+        .highbar {
+            margin-top: 10px;
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+        }
+
+        #mypage {
+            margin-left: 10px;
+        }
+
+        #btn_div {
+            display: flex;
+            justify-content: end;
+
+        }
+
+        #btn_div a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .middlebar {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #user_img_div {
+            width: 100px;
+            height: 100px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        #user_img {
+            background-color: gray;
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        #user_info_div {
+            flex: 4;
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bottombar {
+            display: flex;
+            justify-content: end;
+            margin-bottom: 10px;
+        }
+
+        #favorite_btn_div {
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            display: flex;
+            justify-content: end;
+
+        }
+
+        #favorite_btn {
+            width: inherit;
+            height: inherit;
+            object-fit: contain;
+            margin-right: 20px;
+        }
+
+        main {
+            display: flex;
+            font-family: 'Pretendard-Regular';
+            padding-top: 20px;
+            margin: 0 20 0 20;
+        }
+
+        main div:first-child {
+            flex: 1;
+        }
+
+        main div:nth-child(2) {
+            flex: 6;
+        }
+        .info_title{
+            border-bottom: 1px solid black;
+        }
+
+        .basic_info_div>div {
+            padding: 10px 0px 10px 0px;
+            display: flex;
+        }
+
+        .info_photo_title {
+            flex: 1;
+            
+        }
+
+        .info_photo_outdiv {
+            flex: 4;
+            display: flex;
+            align-items: center;
+        }
+
+        .info_photo_indiv {
+            width: 80px;
+            height: 80px;
+        }
+
+        .photo {
+            width: inherit;
+            height: inherit;
+            object-fit: contain;
+            background-color: gray;
+            border-radius: 50%;
+        }
+        #photo_modify_btn{
+            width: fit-content;
+            height: fit-content;
+        }
+        .mb-3{
+            display: flex;
+            padding: 10px 0px 10px 0px;
+        }
+        .mb-3 > div:first-child{
+            flex: 1;
+        }
+        .mb-3 > input{
+            flex: 6;
+        }
+        .submit_btn{
+            display: flex;
+            justify-content: center;
+        }
