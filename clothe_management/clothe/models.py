@@ -15,4 +15,10 @@ class clothe(models.Model):
     memo = models.TextField()
 
 class looks(models.Model):
-    user = models.ForeignKey('account.myuser',on_delete=models.CASCADE)
+    user = models.ForeignKey('account.myuser',on_delete=models.CASCADE,null=False)
+    name = models.CharField(max_length=100,null=False)
+    top = models.ForeignKey(clothe,on_delete=models.CASCADE,null=False,related_name='top')
+    bottom = models.ForeignKey(clothe,on_delete=models.CASCADE,null=False,related_name='bottom')
+    shoes = models.ForeignKey(clothe,on_delete=models.CASCADE,null=False,related_name='shoes')
+    ACC1 = models.ForeignKey(clothe,on_delete=models.CASCADE,null=True,related_name='ACC1')
+    ACC2 = models.ForeignKey(clothe,on_delete=models.CASCADE,null=True,related_name='ACC2')

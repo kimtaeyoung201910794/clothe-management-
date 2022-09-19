@@ -33,7 +33,10 @@ urlpatterns = [
     path('new_post/<str:type>/',post_view.postFormInput,name = 'new_post'),
     path('add_post/<str:type>/',post_view.add,name = 'add_post'),
     path('community/<str:type>/<str:post_id>/',post_view.detail,name = 'post_detail'),
+
     path('mylooks/',clothe_view.mylooks,name = 'mylooks'),
+    path('mylooks/add',clothe_view.mylooks_form,name = 'mylooks_form'),
+
     path('community/new_post',post_view.add,name = 'new_post'),
     path('favorites/',clothe_view.favorite,name = 'favorite'),
     path('weather/',clothe_view.weather,name = 'weather'),
