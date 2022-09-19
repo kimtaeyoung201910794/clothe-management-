@@ -99,6 +99,8 @@ def list(request, view_for):
 def mylooks(request):
     return render(request,'looks/main.html')
 
+def mylooks_form(request):
+    return render(request,'looks/add.html')
 def favorite(request):
     clothes = []
 
